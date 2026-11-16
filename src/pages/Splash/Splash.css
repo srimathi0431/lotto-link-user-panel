@@ -1,0 +1,1387 @@
+/* =========================================
+   LOTTO LINK — PREMIUM SPLASH SCREEN
+   React + Vite + Pure CSS
+========================================= */
+
+.lotto-splash {
+  --splash-gold: #ffd66b;
+  --splash-gold-light: #fff2bd;
+  --splash-purple: #9b32ff;
+  --splash-pink: #f334d4;
+  --splash-blue: #1678ff;
+  --splash-bg: #050719;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  overflow: hidden;
+  isolation: isolate;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--splash-bg);
+  color: #ffffff;
+  font-family:
+    Inter,
+    "Segoe UI",
+    Arial,
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.lotto-splash *,
+.lotto-splash *::before,
+.lotto-splash *::after {
+  box-sizing: border-box;
+}
+
+/* =========================================
+   BACKGROUND
+========================================= */
+
+.splash-bg-gradient {
+  position: absolute;
+  inset: 0;
+  z-index: -5;
+  background:
+    radial-gradient(
+      ellipse at 50% 38%,
+      rgba(56, 30, 139, 0.4) 0%,
+      transparent 42%
+    ),
+    radial-gradient(
+      ellipse at 12% 55%,
+      rgba(0, 88, 255, 0.13) 0%,
+      transparent 35%
+    ),
+    radial-gradient(
+      ellipse at 90% 45%,
+      rgba(204, 27, 255, 0.13) 0%,
+      transparent 36%
+    ),
+    linear-gradient(
+      145deg,
+      #030512 0%,
+      #0b0d2b 42%,
+      #08091c 72%,
+      #02030d 100%
+    );
+}
+
+.splash-glow {
+  position: absolute;
+  z-index: -4;
+  width: 320px;
+  height: 320px;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+}
+
+.splash-glow-top {
+  top: -190px;
+  left: calc(50% - 160px);
+  background: rgba(113, 44, 255, 0.4);
+  animation: splash-glow-pulse 6s ease-in-out infinite;
+}
+
+.splash-glow-left {
+  top: 30%;
+  left: -250px;
+  background: rgba(0, 100, 255, 0.23);
+  animation: splash-glow-pulse 8s ease-in-out infinite alternate;
+}
+
+.splash-glow-right {
+  top: 32%;
+  right: -250px;
+  background: rgba(225, 38, 255, 0.22);
+  animation: splash-glow-pulse 7s ease-in-out infinite alternate;
+}
+
+.splash-glow-bottom {
+  bottom: -250px;
+  left: calc(50% - 160px);
+  background: rgba(255, 170, 33, 0.16);
+  animation: splash-glow-pulse 7s ease-in-out infinite;
+}
+
+/* =========================================
+   ORBIT RINGS
+========================================= */
+
+.splash-orbit {
+  position: absolute;
+  z-index: -3;
+  left: 50%;
+  top: 43%;
+  border: 1px solid rgba(158, 120, 255, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+  transform: translate(-50%, -50%);
+}
+
+.splash-orbit-one {
+  width: min(78vw, 720px);
+  height: min(78vw, 720px);
+  animation: splash-orbit-rotate 35s linear infinite;
+}
+
+.splash-orbit-two {
+  width: min(65vw, 590px);
+  height: min(65vw, 590px);
+  border-color: rgba(255, 190, 81, 0.11);
+  animation: splash-orbit-rotate 28s linear infinite reverse;
+}
+
+.splash-orbit-three {
+  width: min(53vw, 470px);
+  height: min(53vw, 470px);
+  border-style: dashed;
+  border-color: rgba(178, 103, 255, 0.12);
+  animation: splash-orbit-rotate 50s linear infinite;
+}
+
+/* =========================================
+   PARTICLES
+========================================= */
+
+.splash-particles {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.splash-particle {
+  position: absolute;
+  top: var(--particle-top);
+  left: var(--particle-left);
+  width: var(--particle-size);
+  height: var(--particle-size);
+  border-radius: 50%;
+  background: #ffd777;
+  box-shadow:
+    0 0 6px rgba(255, 203, 87, 0.85),
+    0 0 15px rgba(255, 177, 41, 0.25);
+  opacity: 0;
+  animation:
+    splash-particle-float
+    var(--particle-duration)
+    var(--particle-delay)
+    ease-in-out
+    infinite;
+}
+
+/* =========================================
+   CONFETTI
+========================================= */
+
+.splash-confetti {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.confetti {
+  position: absolute;
+  top: -30px;
+  width: 7px;
+  height: 15px;
+  border-radius: 2px;
+  background: linear-gradient(
+    135deg,
+    #fff0a5,
+    #e99a17,
+    #ffdb70
+  );
+  box-shadow: 0 0 12px rgba(255, 195, 65, 0.3);
+  opacity: 0;
+  animation: splash-confetti-fall 9s linear infinite;
+}
+
+.confetti-1 {
+  left: 9%;
+  animation-delay: -2s;
+}
+
+.confetti-2 {
+  left: 21%;
+  animation-delay: -6s;
+}
+
+.confetti-3 {
+  left: 32%;
+  animation-delay: -4s;
+}
+
+.confetti-4 {
+  left: 45%;
+  animation-delay: -8s;
+}
+
+.confetti-5 {
+  left: 57%;
+  animation-delay: -3s;
+}
+
+.confetti-6 {
+  left: 69%;
+  animation-delay: -7s;
+}
+
+.confetti-7 {
+  left: 81%;
+  animation-delay: -5s;
+}
+
+.confetti-8 {
+  left: 92%;
+  animation-delay: -1s;
+}
+
+.confetti-9 {
+  left: 15%;
+  animation-delay: -7s;
+  transform: rotate(45deg);
+}
+
+.confetti-10 {
+  left: 40%;
+  animation-delay: -5s;
+}
+
+.confetti-11 {
+  left: 74%;
+  animation-delay: -3s;
+}
+
+.confetti-12 {
+  left: 87%;
+  animation-delay: -8s;
+}
+
+/* =========================================
+   LIGHT TRAILS
+========================================= */
+
+.splash-light-trails {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.light-trail {
+  position: absolute;
+  left: -20%;
+  width: 140%;
+  height: 2px;
+  border-radius: 50%;
+  opacity: 0;
+  transform-origin: center;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(0, 132, 255, 0.15) 22%,
+    rgba(179, 73, 255, 0.9) 45%,
+    rgba(255, 206, 92, 0.95) 55%,
+    rgba(255, 71, 218, 0.45) 72%,
+    transparent 100%
+  );
+  filter: drop-shadow(0 0 5px rgba(189, 81, 255, 0.8));
+}
+
+.light-trail-one {
+  top: 32%;
+  animation: splash-trail-move 7s ease-in-out infinite;
+}
+
+.light-trail-two {
+  top: 43%;
+  animation: splash-trail-move 9s ease-in-out -3s infinite;
+  transform: rotate(-10deg);
+}
+
+.light-trail-three {
+  top: 55%;
+  animation: splash-trail-move 8s ease-in-out -4s infinite;
+}
+
+.light-trail-four {
+  top: 68%;
+  animation: splash-trail-move 10s ease-in-out -2s infinite;
+  transform: rotate(8deg);
+}
+
+/* =========================================
+   FLOATING LOTTERY BALLS
+========================================= */
+
+.splash-lottery-balls {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.lotto-ball {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(52px, 8vw, 88px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 2px solid rgba(255, 255, 255, 0.48);
+  box-shadow:
+    inset -8px -10px 18px rgba(0, 0, 0, 0.35),
+    inset 5px 5px 12px rgba(255, 255, 255, 0.6),
+    0 0 25px rgba(255, 255, 255, 0.08);
+  animation: splash-ball-float 6s ease-in-out infinite;
+}
+
+.lotto-ball::before {
+  content: "";
+  position: absolute;
+  top: 12%;
+  left: 19%;
+  width: 27%;
+  height: 15%;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  filter: blur(2px);
+  transform: rotate(-35deg);
+}
+
+.lotto-ball::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.17);
+}
+
+.lotto-ball-number {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 54%;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  color: #11152b;
+  background: linear-gradient(
+    145deg,
+    #ffffff,
+    #f0e9ff
+  );
+  box-shadow: 0 0 12px rgba(255, 255, 255, 0.28);
+  font-size: clamp(20px, 3vw, 32px);
+  font-weight: 900;
+}
+
+.ball-pink {
+  background: radial-gradient(
+    circle at 30% 25%,
+    #ffb6fb 0%,
+    #f12bc6 35%,
+    #8d087e 100%
+  );
+}
+
+.ball-blue {
+  background: radial-gradient(
+    circle at 30% 25%,
+    #a9eaff 0%,
+    #168cff 38%,
+    #0933a5 100%
+  );
+}
+
+.ball-gold {
+  background: radial-gradient(
+    circle at 30% 25%,
+    #fff5a7 0%,
+    #ffca42 40%,
+    #bc6805 100%
+  );
+}
+
+.ball-purple {
+  background: radial-gradient(
+    circle at 30% 25%,
+    #f1b6ff 0%,
+    #9d43ff 40%,
+    #4a148c 100%
+  );
+}
+
+.ball-position-one {
+  top: 19%;
+  left: 7%;
+  animation-delay: -1s;
+}
+
+.ball-position-two {
+  top: 25%;
+  right: 7%;
+  animation-delay: -3s;
+}
+
+.ball-position-three {
+  bottom: 19%;
+  left: 11%;
+  animation-delay: -2s;
+}
+
+.ball-position-four {
+  right: 9%;
+  bottom: 18%;
+  animation-delay: -4s;
+}
+
+.ball-position-five {
+  top: 49%;
+  right: 3%;
+  animation-delay: -2.5s;
+}
+
+.ball-small {
+  width: clamp(32px, 5vw, 48px);
+}
+
+.ball-small .lotto-ball-number {
+  font-size: 18px;
+}
+
+/* =========================================
+   MAIN CONTENT
+========================================= */
+
+.splash-content {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  max-width: 560px;
+  padding: 32px 24px;
+  text-align: center;
+  animation: splash-content-enter 1.2s ease-out both;
+}
+
+/* =========================================
+   LOGO EMBLEM
+========================================= */
+
+.splash-logo-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: clamp(130px, 24vw, 190px);
+  height: clamp(150px, 27vw, 210px);
+  margin-bottom: 12px;
+  animation: splash-logo-float 5s ease-in-out infinite;
+}
+
+.splash-logo-aura {
+  position: absolute;
+  width: 130%;
+  height: 130%;
+  border-radius: 50%;
+  background: radial-gradient(
+    ellipse,
+    rgba(153, 67, 255, 0.23) 0%,
+    rgba(237, 41, 212, 0.08) 38%,
+    transparent 70%
+  );
+  filter: blur(16px);
+  animation: splash-aura-pulse 4s ease-in-out infinite;
+}
+
+/* Crown */
+
+.splash-crown {
+  position: absolute;
+  top: 2%;
+  left: 50%;
+  width: 48px;
+  height: 39px;
+  transform: translateX(-50%);
+  z-index: 4;
+  filter: drop-shadow(0 3px 5px rgba(0, 0, 0, 0.5));
+}
+
+.crown-point {
+  position: absolute;
+  bottom: 12px;
+  width: 10px;
+  height: 20px;
+  border: 1px solid #fff1a1;
+  background: linear-gradient(
+    90deg,
+    #a85a06,
+    #ffeb8a,
+    #d28a15
+  );
+  clip-path: polygon(50% 0, 100% 100%, 0 100%);
+}
+
+.crown-point-left {
+  left: 1px;
+  transform: rotate(-25deg);
+}
+
+.crown-point-center {
+  left: 19px;
+  bottom: 19px;
+  width: 11px;
+  height: 23px;
+}
+
+.crown-point-right {
+  right: 1px;
+  transform: rotate(25deg);
+}
+
+.crown-base {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 15px;
+  border: 1px solid #fff1a1;
+  border-radius: 3px 3px 8px 8px;
+  background: linear-gradient(
+    180deg,
+    #fff3a0 0%,
+    #ffc32d 35%,
+    #a85c09 100%
+  );
+  box-shadow: 0 0 12px rgba(255, 195, 55, 0.3);
+}
+
+.crown-gem {
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #e72ccf;
+  box-shadow: 0 0 6px rgba(255, 57, 219, 0.9);
+  transform: translateX(-50%);
+}
+
+/* Crescent emblem */
+
+.splash-logo-emblem {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 108px;
+  height: 108px;
+  margin-top: 13px;
+  border-radius: 50%;
+  background: linear-gradient(
+    140deg,
+    #fff2a4 0%,
+    #f6b72e 22%,
+    #b46b0d 48%,
+    #ffe784 72%,
+    #d88d0d 100%
+  );
+  box-shadow:
+    0 0 18px rgba(255, 190, 45, 0.36),
+    0 0 45px rgba(172, 55, 255, 0.18),
+    inset 0 0 4px rgba(255, 255, 255, 0.9);
+}
+
+.splash-logo-emblem::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    #170f49,
+    #090c23
+  );
+}
+
+.splash-crescent {
+  position: relative;
+  width: 78px;
+  height: 78px;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    #ffdc61 0%,
+    #d89512 19%,
+    #fff0a0 37%,
+    #f5b72c 60%,
+    #8c4a09 100%
+  );
+  box-shadow:
+    inset -4px -3px 5px rgba(88, 42, 0, 0.45),
+    0 0 10px rgba(255, 206, 74, 0.3);
+  overflow: hidden;
+}
+
+.splash-crescent-cutout {
+  position: absolute;
+  top: -5px;
+  left: 13px;
+  width: 67px;
+  height: 70px;
+  border-radius: 50%;
+  background: linear-gradient(
+    145deg,
+    #ae28ee 0%,
+    #ec3be0 35%,
+    #8624e7 70%,
+    #48149d 100%
+  );
+  box-shadow:
+    inset 3px 2px 7px rgba(255, 255, 255, 0.42),
+    inset -4px -5px 9px rgba(34, 0, 76, 0.45);
+  border: 2px solid rgba(255, 220, 116, 0.9);
+}
+
+.splash-logo-star {
+  position: absolute;
+  top: 23px;
+  left: 29px;
+  color: #fff4b1;
+  font-size: 32px;
+  line-height: 1;
+  text-shadow:
+    0 0 5px rgba(255, 231, 125, 0.9),
+    0 0 12px rgba(255, 180, 36, 0.55);
+  animation: splash-star-twinkle 3s ease-in-out infinite;
+}
+
+.splash-logo-reflection {
+  position: absolute;
+  left: 50%;
+  bottom: -4px;
+  width: 95px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 192, 58, 0.24);
+  filter: blur(9px);
+  transform: translateX(-50%);
+}
+
+/* =========================================
+   BRAND NAME
+========================================= */
+
+.splash-brand {
+  width: 100%;
+}
+
+.splash-brand-name {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: nowrap;
+  margin: 0;
+  font-size: clamp(32px, 6.5vw, 54px);
+  font-weight: 900;
+  line-height: 1.12;
+  letter-spacing: -2px;
+  white-space: nowrap;
+}
+
+.brand-lotto {
+  color: #fff0a0;
+  background: linear-gradient(
+    180deg,
+    #fff9d9 0%,
+    #ffe57d 38%,
+    #e7a722 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 12px rgba(255, 192, 61, 0.14));
+}
+
+.brand-link {
+  margin-left: 9px;
+  background: linear-gradient(
+    100deg,
+    #ffcc62 0%,
+    #ff70de 43%,
+    #b75aff 72%,
+    #ff9be9 100%
+  );
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  filter: drop-shadow(0 2px 12px rgba(231, 63, 255, 0.18));
+}
+
+/* Brand divider */
+
+.splash-brand-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  width: min(290px, 75%);
+  margin: 18px auto 13px;
+}
+
+.splash-brand-divider > span:first-child,
+.splash-brand-divider > span:last-child {
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 206, 98, 0.65)
+  );
+}
+
+.splash-brand-divider > span:last-child {
+  transform: rotate(180deg);
+}
+
+.divider-diamond {
+  width: 6px;
+  height: 6px;
+  border: 1px solid #ffe29a;
+  background: #e8b73f;
+  box-shadow: 0 0 9px rgba(255, 214, 107, 0.7);
+  transform: rotate(45deg);
+}
+
+/* Tagline */
+
+.splash-tagline {
+  margin: 0;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(9px, 2.1vw, 12px);
+  font-weight: 500;
+  letter-spacing: clamp(2px, 0.7vw, 4px);
+  line-height: 1.8;
+  white-space: nowrap;
+}
+
+.splash-tagline span {
+  color: #ffd66b;
+}
+
+/* =========================================
+   CENTER DECORATION
+========================================= */
+
+.splash-center-decoration {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 15px;
+  margin-top: 35px;
+  margin-bottom: 26px;
+}
+
+.decoration-line {
+  display: block;
+  width: 42px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 215, 113, 0.65),
+    transparent
+  );
+}
+
+.decoration-star {
+  color: #ffe5a0;
+  font-size: 17px;
+  text-shadow:
+    0 0 8px rgba(255, 211, 93, 0.7),
+    0 0 20px rgba(255, 176, 44, 0.3);
+  animation: splash-star-twinkle 2.5s ease-in-out infinite;
+}
+
+/* =========================================
+   LOADING
+========================================= */
+
+.splash-loading {
+  width: min(100%, 340px);
+}
+
+.splash-loading-heading {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 25px;
+  margin-bottom: 15px;
+}
+
+.loading-status-dot {
+  flex-shrink: 0;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #60e9ff;
+  box-shadow: 0 0 10px rgba(96, 233, 255, 0.8);
+  animation: splash-status-pulse 1.5s ease-in-out infinite;
+}
+
+.splash-loading-text {
+  flex: 1;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  text-align: left;
+}
+
+.splash-loading-percent {
+  flex-shrink: 0;
+  color: #ffe3a0;
+  font-size: 12px;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+/* Progress track */
+
+.splash-progress-track {
+  position: relative;
+  width: 100%;
+  height: 8px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 219, 134, 0.45);
+  border-radius: 50px;
+  background: rgba(7, 9, 29, 0.92);
+  box-shadow:
+    0 0 12px rgba(108, 65, 255, 0.12),
+    inset 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.splash-progress-fill {
+  position: relative;
+  height: 100%;
+  overflow: hidden;
+  border-radius: inherit;
+  background: linear-gradient(
+    90deg,
+    #00c9ff 0%,
+    #3764ff 26%,
+    #a63dff 53%,
+    #f43ecb 76%,
+    #ffca65 100%
+  );
+  box-shadow:
+    0 0 12px rgba(126, 81, 255, 0.55),
+    0 0 24px rgba(255, 71, 211, 0.18);
+  transition: width 0.12s linear;
+}
+
+.splash-progress-shimmer {
+  position: absolute;
+  inset: 0;
+  width: 45%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.65),
+    transparent
+  );
+  animation: splash-progress-shimmer 1.5s ease-in-out infinite;
+}
+
+/* Loading footer */
+
+.splash-loading-footer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 17px;
+  color: rgba(255, 255, 255, 0.45);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 2.3px;
+}
+
+.splash-footer-sparkle {
+  color: #ffd56b;
+  font-size: 12px;
+  animation: splash-star-twinkle 2s ease-in-out infinite;
+}
+
+/* =========================================
+   BOTTOM SIGNATURE
+========================================= */
+
+.splash-footer {
+  position: absolute;
+  right: 24px;
+  bottom: max(20px, env(safe-area-inset-bottom));
+  left: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 13px;
+  pointer-events: none;
+}
+
+.splash-footer-line {
+  width: 35px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 212, 121, 0.45),
+    transparent
+  );
+}
+
+.splash-footer-brand {
+  color: rgba(255, 255, 255, 0.36);
+  font-size: 9px;
+  font-weight: 600;
+  letter-spacing: 3px;
+}
+
+/* =========================================
+   ANIMATIONS
+========================================= */
+
+@keyframes splash-content-enter {
+  from {
+    opacity: 0;
+    transform: translateY(20px) scale(0.97);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes splash-logo-float {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+}
+
+@keyframes splash-aura-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1);
+  }
+}
+
+@keyframes splash-star-twinkle {
+  0%,
+  100% {
+    opacity: 0.75;
+    transform: scale(0.92);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.12);
+  }
+}
+
+@keyframes splash-particle-float {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, 12px, 0) scale(0.6);
+  }
+  25% {
+    opacity: 0.85;
+  }
+  65% {
+    opacity: 0.6;
+    transform: translate3d(12px, -24px, 0) scale(1);
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(-8px, -45px, 0) scale(0.5);
+  }
+}
+
+@keyframes splash-confetti-fall {
+  0% {
+    opacity: 0;
+    transform: translate3d(0, -30px, 0) rotate(0deg);
+  }
+  10% {
+    opacity: 0.85;
+  }
+  75% {
+    opacity: 0.7;
+  }
+  100% {
+    opacity: 0;
+    transform: translate3d(60px, 110vh, 0) rotate(720deg);
+  }
+}
+
+@keyframes splash-ball-float {
+  0%,
+  100% {
+    transform: translate3d(0, 0, 0) rotate(-5deg);
+  }
+  50% {
+    transform: translate3d(0, -18px, 0) rotate(7deg);
+  }
+}
+
+@keyframes splash-trail-move {
+  0% {
+    opacity: 0;
+    transform: translateX(-12%) rotate(-8deg) scaleX(0.6);
+  }
+  30% {
+    opacity: 0.8;
+  }
+  65% {
+    opacity: 0.45;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(12%) rotate(8deg) scaleX(1);
+  }
+}
+
+@keyframes splash-orbit-rotate {
+  from {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+
+@keyframes splash-glow-pulse {
+  0%,
+  100% {
+    opacity: 0.55;
+    transform: scale(0.95);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.08);
+  }
+}
+
+@keyframes splash-status-pulse {
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+}
+
+@keyframes splash-progress-shimmer {
+  from {
+    transform: translateX(-150%);
+  }
+  to {
+    transform: translateX(350%);
+  }
+}
+
+/* =========================================
+   TABLET
+========================================= */
+
+@media (min-width: 600px) {
+  .splash-content {
+    max-width: 620px;
+  }
+
+  .splash-logo-wrapper {
+    margin-bottom: 18px;
+  }
+
+  .splash-center-decoration {
+    margin-top: 42px;
+    margin-bottom: 30px;
+  }
+
+  .splash-loading {
+    width: 350px;
+  }
+
+  .splash-progress-track {
+    height: 9px;
+  }
+
+  .ball-position-one {
+    left: 13%;
+  }
+
+  .ball-position-two {
+    right: 13%;
+  }
+
+  .ball-position-three {
+    left: 17%;
+  }
+
+  .ball-position-four {
+    right: 15%;
+  }
+}
+
+/* =========================================
+   LAPTOP / DESKTOP
+========================================= */
+
+@media (min-width: 1024px) {
+  .splash-content {
+    max-width: 680px;
+  }
+
+  .splash-logo-wrapper {
+    width: 190px;
+    height: 205px;
+  }
+
+  .splash-logo-emblem {
+    width: 118px;
+    height: 118px;
+  }
+
+  .splash-crescent {
+    width: 85px;
+    height: 85px;
+  }
+
+  .splash-crescent-cutout {
+    width: 72px;
+    height: 76px;
+  }
+
+  .splash-logo-star {
+    top: 26px;
+    left: 32px;
+    font-size: 34px;
+  }
+
+  .splash-brand-name {
+    font-size: 56px;
+  }
+
+  .splash-tagline {
+    font-size: 12px;
+    letter-spacing: 4px;
+  }
+
+  .splash-center-decoration {
+    margin-top: 36px;
+    margin-bottom: 26px;
+  }
+
+  .splash-loading {
+    width: 360px;
+  }
+}
+
+/* =========================================
+   SMALL MOBILE
+========================================= */
+
+@media (max-width: 380px) {
+  .splash-content {
+    padding: 22px 18px;
+  }
+
+  .splash-logo-wrapper {
+    width: 120px;
+    height: 145px;
+    margin-bottom: 9px;
+  }
+
+  .splash-logo-emblem {
+    width: 95px;
+    height: 95px;
+  }
+
+  .splash-crescent {
+    width: 70px;
+    height: 70px;
+  }
+
+  .splash-crescent-cutout {
+    left: 11px;
+    width: 61px;
+    height: 64px;
+  }
+
+  .splash-logo-star {
+    top: 20px;
+    left: 26px;
+    font-size: 29px;
+  }
+
+  .splash-brand-name {
+    font-size: clamp(29px, 8.4vw, 32px);
+    letter-spacing: -1.5px;
+  }
+
+  .brand-link {
+    margin-left: 6px;
+  }
+
+  .splash-tagline {
+    font-size: 8px;
+    letter-spacing: 1.8px;
+  }
+
+  .splash-center-decoration {
+    margin-top: 27px;
+    margin-bottom: 22px;
+  }
+
+  .splash-loading {
+    max-width: 290px;
+  }
+
+  .splash-loading-text {
+    font-size: 12px;
+  }
+
+  .splash-loading-footer {
+    font-size: 8px;
+    letter-spacing: 1.6px;
+  }
+
+  .ball-position-one {
+    left: -17px;
+  }
+
+  .ball-position-two {
+    right: -16px;
+  }
+
+  .ball-position-three {
+    left: -12px;
+    bottom: 14%;
+  }
+
+  .ball-position-four {
+    right: -12px;
+    bottom: 13%;
+  }
+
+  .ball-position-five {
+    right: -17px;
+  }
+
+  .splash-footer {
+    bottom: max(12px, env(safe-area-inset-bottom));
+  }
+}
+
+/* =========================================
+   SHORT SCREENS
+========================================= */
+
+@media (max-height: 650px) {
+  .splash-content {
+    padding-top: 12px;
+    padding-bottom: 28px;
+    transform: scale(0.85);
+  }
+
+  .splash-logo-wrapper {
+    width: 120px;
+    height: 130px;
+    margin-bottom: 5px;
+  }
+
+  .splash-logo-emblem {
+    width: 90px;
+    height: 90px;
+  }
+
+  .splash-crescent {
+    width: 65px;
+    height: 65px;
+  }
+
+  .splash-crescent-cutout {
+    left: 10px;
+    width: 57px;
+    height: 59px;
+  }
+
+  .splash-logo-star {
+    top: 19px;
+    left: 25px;
+    font-size: 27px;
+  }
+
+  .splash-brand-name {
+    font-size: 38px;
+  }
+
+  .splash-brand-divider {
+    margin-top: 10px;
+    margin-bottom: 8px;
+  }
+
+  .splash-center-decoration {
+    margin-top: 20px;
+    margin-bottom: 16px;
+  }
+
+  .splash-footer {
+    bottom: max(8px, env(safe-area-inset-bottom));
+  }
+}
+
+/* =========================================
+   ACCESSIBILITY
+========================================= */
+
+@media (prefers-reduced-motion: reduce) {
+  .lotto-splash *,
+  .lotto-splash *::before,
+  .lotto-splash *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+
+  .splash-progress-shimmer {
+    display: none;
+  }
+}

@@ -1,0 +1,738 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.draw-page {
+  min-height: 100vh;
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+  background: radial-gradient(ellipse at 50% 40%, #35105d 0%, #180b30 45%, #080510 100%);
+  color: #fff;
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  flex-direction: column;
+  margin-left: 260px;
+  max-width: calc(100vw - 260px);
+}
+
+/* BACKGROUND */
+.draw-bg-glow {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  background: #9d28ff;
+  filter: blur(180px);
+  opacity: 0.16;
+  top: 10%;
+  left: -200px;
+  pointer-events: none;
+}
+
+.glow-two {
+  left: auto;
+  right: -200px;
+  top: 50%;
+  background: #ffb000;
+  opacity: 0.12;
+}
+
+/* HEADER */
+.draw-header {
+  width: 100%;
+  height: 95px;
+  padding: 15px 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(255, 215, 100, 0.2);
+  position: relative;
+  z-index: 5;
+  background: rgba(8, 4, 20, 0.5);
+  backdrop-filter: blur(15px);
+}
+
+.draw-logo {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 32px;
+  font-weight: 900;
+  color: #ffd66b;
+  text-shadow: 0 0 20px #ffb000;
+  position: relative;
+}
+
+.draw-logo span {
+  color: #fff;
+}
+
+.logo-underline {
+  height: 3px;
+  width: 90%;
+  margin-top: 3px;
+  background: linear-gradient(90deg, transparent, #ffd45a, transparent);
+}
+
+.live-indicator {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #ff4a65;
+  font-size: 14px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.live-dot {
+  width: 10px;
+  height: 10px;
+  background: #ff334d;
+  border-radius: 50%;
+  box-shadow: 0 0 15px #ff334d;
+  animation: livePulse 1s infinite;
+}
+
+@keyframes livePulse {
+  50% {
+    opacity: 0.3;
+    transform: scale(0.7);
+  }
+}
+
+/* MAIN */
+.draw-main {
+  flex: 1;
+  width: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 20px 20px 50px;
+  position: relative;
+  z-index: 2;
+}
+
+.draw-stage {
+  width: 100%;
+  max-width: 1000px;
+  min-height: 360px;
+  padding: 20px 20px 35px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.stage-tag {
+  color: #ffdb79;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 5px;
+  margin-bottom: 20px;
+}
+
+.draw-heading {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(36px, 5vw, 64px);
+  font-weight: 900;
+  color: white;
+  letter-spacing: 4px;
+  margin-bottom: 10px;
+}
+
+.draw-heading span { color: #ffca53; }
+
+.draw-subtitle {
+  font-size: 16px;
+  color: #c4b2dc;
+  letter-spacing: 1px;
+  margin-bottom: 35px;
+}
+
+/* SHUFFLE TIMER */
+.shuffle-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 28px;
+  background: rgba(10, 5, 25, 0.9);
+  border: 1px solid rgba(255, 200, 70, 0.5);
+  border-radius: 40px;
+  font-size: 13px;
+  letter-spacing: 1px;
+  margin-bottom: 30px;
+  box-shadow: 0 0 20px rgba(255, 190, 30, 0.15);
+}
+
+.shuffle-status strong {
+  color: #ffd34e;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 17px;
+}
+
+.clock-icon {
+  color: #ffda6b;
+  font-size: 23px;
+}
+
+/* NUMBER BOXES */
+.number-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin: 35px 0;
+  flex-wrap: nowrap;
+}
+
+.digit-box {
+  width: 105px;
+  height: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 17px;
+  border: 2px solid #ffc94c;
+  background:
+    linear-gradient(145deg, #30154a, #100a20 65%, #26102d);
+  box-shadow:
+    0 0 10px rgba(255, 190, 40, 0.7),
+    0 0 30px rgba(255, 170, 30, 0.2),
+    inset 0 0 20px rgba(255, 185, 50, 0.12);
+  color: #ffe29a;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 70px;
+  font-weight: 900;
+  text-shadow: 0 0 15px #ffb000;
+}
+
+/* LAPTOP - bigger boxes */
+@media (min-width: 1025px) {
+  .digit-box {
+    width: 130px;
+    height: 145px;
+    font-size: 86px;
+  }
+  .winner-numbers .digit-box {
+    width: 110px;
+    height: 125px;
+    font-size: 72px;
+  }
+}
+
+.digit-box::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent 20%, rgba(255,255,255,0.12), transparent 80%);
+  pointer-events: none;
+}
+
+.ready-box {
+  animation: boxGlow 2s infinite alternate;
+}
+
+@keyframes boxGlow {
+  from { box-shadow: 0 0 10px #ffba35; }
+  to   { box-shadow: 0 0 35px #ffc94c; }
+}
+
+/* SHUFFLING */
+/* SHUFFLING - each box different slow speed via inline style */
+.digit-shuffling span {
+  display: block;
+  animation: numberRoll linear infinite;
+}
+
+@keyframes numberRoll {
+  0%   { transform: translateY(-18px); opacity: 0.3; }
+  50%  { transform: translateY(18px);  opacity: 1; }
+  100% { transform: translateY(-18px); opacity: 0.3; }
+}
+
+.shuffle-loader {
+  width: 280px;
+  height: 5px;
+  background: rgba(255,255,255,0.1);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.loader-bar {
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(90deg, #ff9e21, #fff2a3, #ff9e21);
+  transform-origin: left;
+  animation: loaderProgress 5s linear forwards;
+}
+
+@keyframes loaderProgress {
+  from { transform: scaleX(0); }
+  to   { transform: scaleX(1); }
+}
+
+/* BUTTON */
+.start-draw-btn {
+  border: none;
+  outline: none;
+  padding: 17px 42px;
+  border-radius: 50px;
+  margin-top: 30px;
+  background: linear-gradient(135deg, #fff0a3, #ffb51d, #ffda66);
+  color: #28102e;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  letter-spacing: 1px;
+  cursor: pointer;
+  box-shadow: 0 0 25px rgba(255, 184, 30, 0.4);
+  transition: 0.3s ease;
+}
+
+.start-draw-btn:hover {
+  transform: translateY(-4px) scale(1.04);
+  box-shadow: 0 0 40px #ffba35;
+}
+
+.draw-info {
+  color: #b7a5cf;
+  font-size: 12px;
+  margin-top: 25px;
+  letter-spacing: 1px;
+}
+
+/* WINNER REVEAL */
+.winner-stage { position: relative; }
+
+.winner-crown {
+  font-size: 44px;
+  color: #ffda72;
+  text-shadow: 0 0 25px #ffb700;
+  animation: crownFloat 2s infinite ease-in-out;
+}
+
+@keyframes crownFloat {
+  50% { transform: translateY(-10px); }
+}
+
+.winner-banner {
+  background: linear-gradient(90deg, #8a171c, #e3472e, #8a171c);
+  border: 2px solid #ffda72;
+  border-radius: 10px;
+  padding: 8px 24px;
+  font-family: 'Orbitron', sans-serif;
+  font-weight: 900;
+  font-size: 15px;
+  color: white;
+  box-shadow: 0 0 18px #ffad36;
+  margin: 8px 0;
+}
+
+.winner-congratulations {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(14px, 3vw, 24px);
+  color: #ffda72;
+  margin-top: 10px;
+  letter-spacing: 2px;
+}
+
+.winner-numbers {
+  margin: 16px 0;
+}
+
+.winner-numbers .digit-box {
+  width: 70px;
+  height: 80px;
+  font-size: 46px;
+  border-radius: 12px;
+}
+
+.winner-message {
+  color: #ffdc76;
+  letter-spacing: 4px;
+  font-size: 11px;
+  font-weight: 800;
+}
+
+/* CELEBRATION */
+.celebration-stage {
+  position: relative;
+  overflow: hidden;
+}
+
+.celebration-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(24px, 5vw, 45px);
+  color: #ffdc70;
+  text-shadow: 0 0 20px #ff9e00;
+  margin-top: 20px;
+}
+
+.celebration-number-label {
+  font-size: 20px;
+  font-weight: 800;
+  color: #f1f5f9;
+  letter-spacing: 1px;
+  margin-top: 10px;
+}
+
+.prize-amount-display {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  color: #ffd34e;
+  text-shadow: 0 0 15px #ffb000;
+  margin-top: 6px;
+}
+
+.celebration-label {
+  padding: 12px 30px;
+  border: 1px solid #ffd35a;
+  border-radius: 40px;
+  color: #ffdf83;
+  font-size: 12px;
+  letter-spacing: 2px;
+  background: rgba(0,0,0,0.4);
+  margin-top: 15px;
+}
+
+/* FIREWORKS */
+.firework {
+  position: absolute;
+  font-size: 65px;
+  color: #ffce55;
+  text-shadow: 0 0 25px #ffad00;
+  animation: fireworkBurst 1.5s infinite;
+}
+
+.firework-one   { top: 10%; left: 8%; }
+.firework-two   { top: 12%; right: 8%; color: #ff4bd8; animation-delay: 0.5s; }
+.firework-three { bottom: 10%; right: 20%; color: #8f74ff; animation-delay: 1s; }
+
+@keyframes fireworkBurst {
+  0%   { transform: scale(0.2); opacity: 0; }
+  50%  { transform: scale(1.5); opacity: 1; }
+  100% { transform: scale(0.5); opacity: 0; }
+}
+
+/* CONFETTI */
+.confetti-container {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.confetti-piece {
+  position: absolute;
+  top: -20px;
+  width: 9px;
+  height: 15px;
+  background: #ffd34e;
+  animation: confettiFall linear infinite;
+}
+
+.confetti-piece:nth-child(3n)   { background: #ff48ca; border-radius: 50%; }
+.confetti-piece:nth-child(3n+1) { background: #53d9ff; }
+.confetti-piece:nth-child(3n+2) { background: #ff8c37; }
+
+@keyframes confettiFall {
+  to {
+    top: 110%;
+    transform: rotate(720deg) translateX(50px);
+  }
+}
+
+/* FINAL RESULTS */
+.final-results {
+  width: 100%;
+  max-width: 1200px;
+  text-align: center;
+  animation: stageEnter 0.8s ease;
+}
+
+.final-crown {
+  font-size: 75px;
+  color: #ffdc6b;
+  text-shadow: 0 0 25px #ffb000;
+}
+
+.final-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: clamp(25px, 5vw, 48px);
+  font-weight: 900;
+  color: #ffdc70;
+  text-shadow: 0 0 20px #ffad00;
+  margin: 10px 0;
+}
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px;
+  margin-top: 45px;
+}
+
+.result-card {
+  padding: 25px 12px;
+  background: linear-gradient(145deg, #38144c, #11091e);
+  border: 2px solid #dba73c;
+  border-radius: 18px;
+  box-shadow: 0 0 25px rgba(255,181,34,0.2);
+  animation: revealDigit 0.7s ease both;
+}
+.result-card:nth-child(1){ animation-delay:.1s }
+.result-card:nth-child(2){ animation-delay:.2s }
+.result-card:nth-child(3){ animation-delay:.3s }
+.result-card:nth-child(4){ animation-delay:.4s }
+
+.result-label {
+  background: linear-gradient(90deg, #861b24, #c83b32, #861b24);
+  border: 1px solid #ffda70;
+  padding: 10px 5px;
+  border-radius: 10px;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+.result-digits {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  margin: 25px 0;
+  flex-wrap: wrap;
+}
+
+.result-digits span {
+  width: 38px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(145deg, #381b43, #0b0715);
+  border: 1px solid #ffcf4c;
+  border-radius: 7px;
+  color: #ffdf85;
+  font-family: 'Orbitron', sans-serif;
+  font-size: 22px;
+  font-weight: 900;
+  box-shadow: 0 0 10px rgba(255,180,30,0.3);
+}
+
+.result-prize {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 14px;
+  font-weight: 900;
+  color: #ffd34e;
+  margin: 8px 0;
+}
+.result-prize span { font-size: 10px; color: #b7a5cf; margin-left: 4px; }
+
+.result-status {
+  color: #ffcf5c;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+.final-actions {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.replay-btn { margin-top: 0; }
+
+/* PRIZE BREAKDOWN TABLE */
+.draw-prize-breakdown-section {
+  width: 100%;
+  max-width: 540px;
+  background: rgba(0,0,0,0.4);
+  border: 1px solid rgba(255,200,70,0.25);
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 10px 0;
+}
+
+.dpb-title {
+  padding: 10px 16px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 1px;
+  color: #ffd66b;
+  background: rgba(255,180,30,0.1);
+  border-bottom: 1px solid rgba(255,200,70,0.2);
+}
+
+.dpb-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 10px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+.dpb-row:last-child { border-bottom: none; }
+
+.dpb-left { display: flex; align-items: center; gap: 6px; min-width: 100px; }
+.dpb-name  { font-size: 12px; font-weight: 700; color: #e2e8f0; }
+.dpb-pct   { font-size: 11px; color: #b7a5cf; }
+
+.dpb-boxes { display: flex; gap: 4px; flex: 1; justify-content: center; }
+
+.dpb-box {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 22px; height: 24px;
+  border-radius: 5px;
+  font-size: 10px;
+  font-weight: 900;
+}
+
+.dpb-box.active   { background: linear-gradient(135deg,#ffb51d,#ffd66b); color: #28102e; box-shadow: 0 0 8px rgba(255,181,30,.4); }
+.dpb-box.inactive { background: rgba(255,255,255,.04); color: #475569; border: 1px solid rgba(255,255,255,.07); }
+
+.dpb-amount { font-size: 12px; font-weight: 900; color: #ffd34e; text-align: right; }
+
+/* FOOTER */
+.draw-footer {
+  text-align: center;
+  padding: 20px;
+  border-top: 1px solid rgba(255,210,100,0.15);
+  background: rgba(5,3,15,0.7);
+}
+
+.draw-footer span {
+  font-family: 'Orbitron', sans-serif;
+  color: #ffcf56;
+  font-size: 18px;
+  font-weight: 900;
+}
+
+.draw-footer p {
+  color: #887b9d;
+  font-size: 10px;
+  letter-spacing: 3px;
+  margin-top: 5px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 1024px) {
+  .draw-page {
+    margin-left: 0;
+    max-width: 100vw;
+    padding-bottom: 80px; /* Space for bottom navbar */
+  }
+}
+
+@media (max-width: 768px) {
+  .draw-header { height: 75px; padding: 12px 5%; }
+  .draw-logo { font-size: 24px; }
+  .live-indicator { font-size: 10px; letter-spacing: 1px; }
+  .draw-main { padding: 20px 12px 40px; }
+  .draw-stage { min-height: 400px; padding: 20px 5px; }
+  .number-container { gap: 8px; margin: 30px 0; }
+  .digit-box {
+    width: clamp(55px, 18vw, 85px);
+    height: clamp(70px, 21vw, 100px);
+    font-size: clamp(36px, 11vw, 58px);
+    border-radius: 12px;
+  }
+  .draw-heading { font-size: 28px; letter-spacing: 2px; }
+  .winner-banner { font-size: 15px; padding: 12px 20px; }
+  .winner-crown { font-size: 45px; }
+  .shuffle-status { font-size: 10px; padding: 10px 18px; }
+  .shuffle-status strong { font-size: 14px; }
+  .results-grid { grid-template-columns: repeat(2, 1fr); gap: 12px; margin-top: 25px; }
+  .result-card { padding: 18px 8px; }
+  .result-digits span { width: 30px; height: 40px; font-size: 18px; }
+  .result-label { font-size: 10px; }
+  .firework { font-size: 35px; }
+}
+
+@media (max-width: 380px) {
+  .number-container { gap: 5px; }
+  .digit-box { width: 55px; height: 68px; font-size: 35px; }
+  .start-draw-btn { padding: 14px 22px; font-size: 11px; }
+  .results-grid { gap: 8px; }
+  .result-digits span { width: 25px; height: 35px; font-size: 15px; }
+  .draw-main { padding: 20px 12px 70px; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .draw-page *,
+  .draw-page *::before,
+  .draw-page *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* REVEALED DIGIT ANIMATION */
+.digit-revealed {
+  animation: revealDigit 0.8s cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes revealDigit {
+  0%   { transform: scale(0) rotateY(180deg); opacity: 0; }
+  70%  { transform: scale(1.1); }
+  100% { transform: scale(1) rotateY(0); opacity: 1; }
+}
+
+.digit-revealed:nth-child(1) { animation-delay: 0.5s; }
+.digit-revealed:nth-child(2) { animation-delay: 0.65s; }
+.digit-revealed:nth-child(3) { animation-delay: 0.8s; }
+.digit-revealed:nth-child(4) { animation-delay: 0.95s; }
+
+/* PRIZE AMOUNT COMPACT */
+.prize-amount-display {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 16px;
+  font-weight: 900;
+  color: #ffd34e;
+  text-shadow: 0 0 10px #ffb000;
+  margin-top: 6px;
+}
+
+/* CELEBRATION LABEL COMPACT */
+.celebration-label {
+  padding: 8px 20px;
+  border: 1px solid #ffd35a;
+  border-radius: 30px;
+  color: #ffdf83;
+  font-size: 11px;
+  letter-spacing: 2px;
+  background: rgba(0,0,0,0.4);
+  margin-top: 10px;
+}
+
+/* WINNER BANNER POP ANIMATION */
+.winner-banner-reveal {
+  animation: bannerPop 0.6s cubic-bezier(.17,.67,.35,1.3) backwards;
+}
+
+@keyframes bannerPop {
+  0%   { transform: scale(0) translateY(-30px); opacity: 0; }
+  70%  { transform: scale(1.1) translateY(0); }
+  100% { transform: scale(1) translateY(0); opacity: 1; }
+}
+
+/* WINNER NUMBERS DELAYED CONTAINER */
+.winner-numbers-delayed {
+  animation: numbersDelayedEntry 0.4s ease backwards;
+  animation-delay: 0.5s;
+}
+
+@keyframes numbersDelayedEntry {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}

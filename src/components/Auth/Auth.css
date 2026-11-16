@@ -1,0 +1,496 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap");
+
+* {
+  box-sizing: border-box;
+}
+
+.lotto-auth-page {
+  min-height: 100vh;
+  min-height: 100dvh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  position: relative;
+  overflow: hidden;
+  isolation: isolate;
+  font-family: "Inter", sans-serif;
+  background:
+    radial-gradient(
+      ellipse at 15% 15%,
+      rgba(66, 133, 255, 0.12),
+      transparent 45%
+    ),
+    radial-gradient(
+      ellipse at 85% 85%,
+      rgba(255, 42, 174, 0.12),
+      transparent 45%
+    ),
+    #f0f5ff;
+  color: #101c43;
+}
+
+.lotto-auth-glow {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  filter: blur(80px);
+  opacity: 0.35;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.lotto-glow-one {
+  top: -100px;
+  left: -100px;
+  background: #4d8aff;
+}
+
+.lotto-glow-two {
+  bottom: -100px;
+  right: -100px;
+  background: #ff48bd;
+}
+
+/* Main card */
+
+.lotto-auth-card {
+  width: 100%;
+  max-width: 390px;
+  padding: 28px 25px 24px;
+  border: 1px solid rgba(255, 255, 255, 0.9);
+  border-radius: 27px;
+  background: rgba(255, 255, 255, 0.87);
+  box-shadow:
+    0 22px 65px rgba(38, 67, 130, 0.12),
+    0 4px 16px rgba(38, 67, 130, 0.06);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  position: relative;
+  z-index: 1;
+  animation: lotto-card-enter 0.55s ease both;
+}
+
+@keyframes lotto-card-enter {
+  from {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Branding */
+
+.lotto-auth-header {
+  text-align: center;
+  margin-bottom: 22px;
+}
+
+.lotto-logo {
+  width: 59px;
+  height: 59px;
+  margin: 0 auto 5px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lotto-logo-orbit {
+  width: 47px;
+  height: 47px;
+  border: 3px solid #ffb52e;
+  border-radius: 50%;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: rotate(-20deg);
+  box-shadow: 0 0 14px rgba(255, 181, 46, 0.2);
+}
+
+.lotto-logo-orbit::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 2px solid #8c43ed;
+  border-radius: 50%;
+}
+
+.lotto-logo-star {
+  color: #ffb52e;
+  font-size: 20px;
+  z-index: 1;
+  transform: rotate(20deg);
+}
+
+.lotto-logo-crescent {
+  position: absolute;
+  right: -7px;
+  top: -8px;
+  font-size: 25px;
+  color: #e83da8;
+  transform: rotate(20deg);
+}
+
+.lotto-brand {
+  margin: 0;
+  font-size: 23px;
+  line-height: 1.3;
+  font-weight: 900;
+  letter-spacing: -0.8px;
+  color: #183caa;
+}
+
+.lotto-brand span {
+  background: linear-gradient(100deg, #ff8a25, #f32eaa);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.lotto-auth-subtitle {
+  margin: 5px 0 0;
+  font-size: 14px;
+  font-weight: 700;
+  color: #18264c;
+}
+
+/* Register and login tabs */
+
+.lotto-auth-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5px;
+  padding: 4px;
+  border-radius: 11px;
+  background: #f0f4fb;
+  margin-bottom: 20px;
+}
+
+.lotto-auth-tabs button {
+  min-height: 34px;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  color: #6b7898;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  cursor: pointer;
+  transition:
+    color 0.25s ease,
+    background 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+.lotto-auth-tabs button.active {
+  color: white;
+  background: linear-gradient(105deg, #078dfb, #544bff 55%, #ef3da9);
+  box-shadow: 0 4px 12px rgba(67, 111, 255, 0.22);
+}
+
+/* Form fields */
+
+.lotto-auth-form {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+
+.lotto-input-box {
+  width: 100%;
+  min-height: 43px;
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 0 12px;
+  border: 1px solid #e0e7f3;
+  border-radius: 10px;
+  background: rgba(255, 255, 255, 0.82);
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.lotto-input-box:focus-within {
+  border-color: #448aff;
+  box-shadow: 0 0 0 3px rgba(68, 138, 255, 0.1);
+}
+
+.lotto-field-icon {
+  flex-shrink: 0;
+  width: 15px;
+  color: #65789f;
+  font-size: 15px;
+  text-align: center;
+}
+
+.lotto-input-box input {
+  width: 100%;
+  min-width: 0;
+  height: 40px;
+  padding: 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #17264b;
+  font-family: inherit;
+  font-size: 11px;
+}
+
+.lotto-input-box input::placeholder {
+  color: #8995ad;
+  opacity: 1;
+}
+
+.lotto-country-code {
+  max-width: 56px;
+  padding: 5px 0;
+  border: none;
+  outline: none;
+  background: transparent;
+  color: #29385d;
+  font-family: inherit;
+  font-size: 11px;
+  font-weight: 600;
+}
+
+.lotto-password-toggle {
+  flex-shrink: 0;
+  padding: 5px 0 5px 4px;
+  border: none;
+  background: transparent;
+  color: #65789f;
+  font-family: inherit;
+  font-size: 9px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+/* Forgot password */
+
+.lotto-forgot-row {
+  display: flex;
+  justify-content: flex-end;
+  margin-top: -4px;
+}
+
+.lotto-forgot-row button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #315bd8;
+  font-family: inherit;
+  font-size: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* Terms */
+
+.lotto-terms {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  margin: 1px 0 2px;
+  color: #52617f;
+  font-size: 10px;
+}
+
+.lotto-terms input {
+  width: 13px;
+  height: 13px;
+  margin: 0;
+  accent-color: #177cff;
+  cursor: pointer;
+}
+
+.lotto-terms a {
+  color: #315bd8;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  font-weight: 600;
+}
+
+/* Main button */
+
+.lotto-submit-button {
+  width: 100%;
+  min-height: 44px;
+  margin-top: 2px;
+  border: none;
+  border-radius: 11px;
+  background: linear-gradient(105deg, #078dfb 0%, #5451ff 52%, #f52eaa 100%);
+  color: #fff;
+  font-family: inherit;
+  font-size: 12px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 7px 17px rgba(77, 91, 255, 0.2);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.lotto-submit-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 22px rgba(77, 91, 255, 0.28);
+}
+
+.lotto-submit-button:active {
+  transform: scale(0.985);
+}
+
+/* OR separator */
+
+.lotto-or-divider {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 15px 0 12px;
+}
+
+.lotto-or-divider span {
+  flex: 1;
+  height: 1px;
+  background: #e5eaf4;
+}
+
+.lotto-or-divider p {
+  margin: 0;
+  color: #75819b;
+  font-size: 10px;
+  font-weight: 600;
+}
+
+/* Social buttons */
+
+.lotto-social-buttons {
+  display: flex;
+  justify-content: center;
+  gap: 14px;
+}
+
+.lotto-social-buttons button {
+  width: 48px;
+  height: 39px;
+  border: 1px solid #e2e9f5;
+  border-radius: 10px;
+  background: #fff;
+  cursor: pointer;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.lotto-social-buttons button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 14px rgba(33, 61, 116, 0.1);
+}
+
+.lotto-google-icon {
+  font-size: 20px;
+  font-weight: 800;
+  color: #4285f4;
+}
+
+.lotto-apple-icon {
+  font-size: 19px;
+  color: #111827;
+}
+
+/* Bottom account switch — not a footer nav */
+
+.lotto-switch-text {
+  margin: 19px 0 0;
+  text-align: center;
+  color: #5e6c88;
+  font-size: 10px;
+}
+
+.lotto-switch-text button {
+  padding: 0;
+  border: none;
+  background: transparent;
+  color: #315bd8;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+/* Responsive */
+
+@media (max-width: 480px) {
+  .lotto-auth-page {
+    padding: 16px;
+  }
+
+  .lotto-auth-card {
+    max-width: 360px;
+    padding: 24px 20px 22px;
+    border-radius: 23px;
+  }
+
+  .lotto-auth-header {
+    margin-bottom: 18px;
+  }
+}
+
+@media (max-height: 720px) {
+  .lotto-auth-page {
+    align-items: flex-start;
+    overflow-y: auto;
+    padding-top: 16px;
+    padding-bottom: 16px;
+  }
+
+  .lotto-auth-card {
+    margin: auto 0;
+    padding-top: 19px;
+    padding-bottom: 18px;
+  }
+
+  .lotto-auth-header {
+    margin-bottom: 14px;
+  }
+
+  .lotto-logo {
+    width: 48px;
+    height: 48px;
+  }
+
+  .lotto-logo-orbit {
+    width: 40px;
+    height: 40px;
+  }
+
+  .lotto-auth-form {
+    gap: 9px;
+  }
+
+  .lotto-input-box {
+    min-height: 40px;
+  }
+
+  .lotto-input-box input {
+    height: 37px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .lotto-auth-card {
+    animation: none;
+  }
+
+  .lotto-auth-tabs button,
+  .lotto-submit-button,
+  .lotto-social-buttons button {
+    transition: none;
+  }
+}
